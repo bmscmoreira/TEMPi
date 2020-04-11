@@ -27,7 +27,7 @@ chmod +x TEMPi.sh
 ```
 $ crontab -e
 ```
-and append the following line in the end of the file:
+and append the following line (adapting it to your linux user / script path) in the end of the file:
 ```
 * * * * * /home/pi/Desktop/TEMPi.sh
 ```
