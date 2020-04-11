@@ -2,7 +2,6 @@
 A CPU/GPU temperature logger for Raspberry Pi.
 
 ### Why
-
 The Raspberry Pi packs a lot of power, when compared to its predecessors, in a small form-factor. Each use-case scenario is unique as so is the need to dissipate the heat it produces, either with active or passive cooling solutions. Either way, you can't improve what you can't measure, and this simple script allows you to do that: log the Rasperry Pi's CPU and GPU temperature to a file.
 
 Just a few hours logging temperature allowed me to notice that:
@@ -12,7 +11,6 @@ Just a few hours logging temperature allowed me to notice that:
 - elevating the Pi, for fresh air to have more room to come in from beneath the Pi made no difference in temps as well.
 
 ### How to use this script:
-
 - download TEMPi.sh script and place it at a convenient location (for example, in your desktop);
 - edit TEMPi.sh and change the location and filename desired for the log file;
 ```
@@ -31,6 +29,7 @@ and append the following line (adapting it to your linux user / script path) in 
 ```
 * * * * * /home/pi/Desktop/TEMPi.sh
 ```
+
 ### Content of the script
 ```
 #!/bin/bash
@@ -47,7 +46,7 @@ echo "TEMPi log: $(date +%F_%T)|CPU:$((cpu/1000)).0'C|GPU:$gpu" >> $file
 ```
 
 ### The result
-TEMPi will write to the specified file the CPU/GPU temperatures with this syntax:
+TEMPi will write the CPU/GPU temperatures  to the specified file with the following syntax:
 ```
 TEMPi log: 2020-04-11_22:30:01|CPU:54.0'C|GPU:54.0'C
 TEMPi log: 2020-04-11_22:31:01|CPU:53.0'C|GPU:54.0'C
