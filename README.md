@@ -1,14 +1,15 @@
 # TEMPi
-A CPU/GPU temperature logger for Raspberry Pi.
+A temperature logger for Raspberry Pi.
 
 ### Why
-The Raspberry Pi packs a lot of power, when compared to its predecessors, in a small form-factor. Each use-case scenario is unique as so is the need to dissipate the heat it produces, either with active or passive cooling solutions. Either way, you can't improve what you can't measure, and this simple script allows you to do that: log the Rasperry Pi's CPU and GPU temperature to a file.
+The Raspberry Pi packs a lot of power, when compared to its predecessors, in a small form-factor. Each use-case scenario is unique as so is the need to dissipate the heat it produces, either with active or passive cooling solutions. Either way, you can't improve what you can't measure, and this simple script allows you to do that: log the Rasperry Pi's temperature to a file.
 
 Just a few hours logging temperature allowed me to notice that:
-- my Raspberry Pi 4 in a closed acrilic case, with just a small gap for ventilation, stabilized at 54CPU/54GPU celsius, at idle;
-- same case with the top cover removed and the temperatures lowered to 49CPU/48GPU celsius, idling as well;
-- deactivating VNC protocol or booting to CLI instead of desktop made no difference in the temps;
-- elevating the Pi, for fresh air to have more room to come in from beneath the Pi made no difference in temps as well.
+- my Raspberry Pi 4 in a closed acrilic case, with just a small gap for ventilation, stabilized at 54ºC, at idle;
+- same case with the top cover removed and the temperature lowered to 49ºC, idling as well;
+- deactivating VNC protocol or booting to CLI instead of desktop made no difference in the temperature;
+- elevating the Pi, for fresh air to have more room to come in from below the Pi made no difference in temperature as well;
+- placing the Pi sideways, with the I/O ports facing up, prevented the Pi from accumulating heat from below and allowed a better airflow and cooling: temperature dropped 2 degrees to 47ºC.
 
 ### How to use this script:
 - download TEMPi.sh script and place it at a convenient location (for example, in your desktop);
@@ -33,24 +34,22 @@ and append the following line (adapting it to your linux user / script path) in 
 ### Content of the script
 ```
 #!/bin/bash
-# TEMPi - a CPU/GPU temperature logger for Raspberry Pi
+# TEMPi - a temperature logger for Raspberry Pi
 # https://github.com/bmscmoreira/TEMPi/
 # DEFINE PATH TO LOG FILE: change this to the desired location/filename.
 file="$HOME/Desktop/TEMPi_log.txt"
-# GET TEMPERATURES
-cpu=$(</sys/class/thermal/thermal_zone0/temp)
-gpu=$(/opt/vc/bin/vcgencmd measure_temp)
-gpu=${gpu:5:6} # formatting GPU temperature output
-# LOG TEMPERATURES TO FILE
-echo "TEMPi log: $(date +%F_%T)|CPU:$((cpu/1000)).0'C|GPU:$gpu" >> $file
+# GET TEMPERATURE
+temp=$(</sys/class/thermal/thermal_zone0/temp)
+# LOG TEMPERATURE TO FILE
+echo "TEMPi log: $(date +%F_%T)|TEMP:$((temp/1000)).0'C" >> $file
 ```
 
 ### The result
-TEMPi will write the CPU/GPU temperatures  to the specified file with the following syntax:
+TEMPi will write the temperatures to the specified file with the following syntax:
 ```
-TEMPi log: 2020-04-11_22:30:01|CPU:54.0'C|GPU:54.0'C
-TEMPi log: 2020-04-11_22:31:01|CPU:53.0'C|GPU:54.0'C
-TEMPi log: 2020-04-11_22:32:01|CPU:54.0'C|GPU:55.0'C
+TEMPi log: 2020-04-11_22:30:01|TEMP:54.0'C
+TEMPi log: 2020-04-11_22:31:01|TEMP:53.0'C
+TEMPi log: 2020-04-11_22:32:01|TEMP:54.0'C
 (...)
 ```
 
