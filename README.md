@@ -10,7 +10,7 @@ Just a few hours logging temperature allowed me to notice that:
 - deactivating VNC protocol or booting to CLI instead of desktop made no difference in the temperature;
 - elevating the Pi, for fresh air to have more room to come in from below the Pi made no difference in temperature as well;
 - placing the Pi sideways, with the I/O ports facing up, prevented the Pi from accumulating heat from below and allowed a better airflow and cooling: temperature dropped 2 degrees to 47C;
-- adding an aluminium heatsink (passive solution - no fans) lowered idle temps to 39.
+- adding an aluminium heatsink (passive solution - no fans) lowered idle temps to 39C.
 
 ### How to use this script:
 - download TEMPi.sh script and place it at a convenient location (for example, in your desktop);
