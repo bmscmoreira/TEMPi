@@ -5,11 +5,12 @@ A temperature logger for Raspberry Pi.
 The Raspberry Pi packs a lot of power, when compared to its predecessors, in a small form-factor. Each use-case scenario is unique as so is the need to dissipate the heat it produces, either with active or passive cooling solutions. Either way, you can't improve what you can't measure, and this simple script allows you to do that: log the Rasperry Pi's temperature to a file.
 
 Just a few hours logging temperature allowed me to notice that:
-- my Raspberry Pi 4 in a closed acrilic case, with just a small gap for ventilation, stabilized at 54ºC, at idle;
-- same case with the top cover removed and the temperature lowered to 49ºC, idling as well;
+- my Raspberry Pi 4 in a closed acrilic case, with just a small gap for ventilation, stabilized at 54C, at idle;
+- same case with the top cover removed and the temperature lowered to 49C, idling as well;
 - deactivating VNC protocol or booting to CLI instead of desktop made no difference in the temperature;
 - elevating the Pi, for fresh air to have more room to come in from below the Pi made no difference in temperature as well;
-- placing the Pi sideways, with the I/O ports facing up, prevented the Pi from accumulating heat from below and allowed a better airflow and cooling: temperature dropped 2 degrees to 47ºC.
+- placing the Pi sideways, with the I/O ports facing up, prevented the Pi from accumulating heat from below and allowed a better airflow and cooling: temperature dropped 2 degrees to 47C;
+- adding an aluminium heatsink (passive solution - no fans) lowered idle temps to 39.
 
 ### How to use this script:
 - download TEMPi.sh script and place it at a convenient location (for example, in your desktop);
